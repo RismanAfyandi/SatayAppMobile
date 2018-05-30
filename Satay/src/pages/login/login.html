@@ -1,0 +1,68 @@
+
+<ion-content fullscreen>
+  <ion-content padding id="welcome">
+
+  <ion-grid>
+  	<ion-row class="logo">
+  		<ion-col>
+  			<img src="assets/imgs/logo.png" class="logo" />
+  		</ion-col>
+  	</ion-row>
+    <ion-row>
+      <ion-col>
+      	<div text-center>
+        	<h1>Satay</h1>
+    	</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid >
+  	<ion-row>
+  		<ion-col>
+  			<ion-item>
+  				<ion-input type="text" placeholder="E-mail"></ion-input><ion-icon name="mail" item-right></ion-icon>
+  			</ion-item>
+  		</ion-col>
+  	</ion-row>
+  	<ion-row>
+  		<ion-col>
+  			<ion-item>
+  				<ion-input type="text" placeholder="Password"></ion-input><ion-icon name="key" item-right></ion-icon>
+  			</ion-item>
+  		</ion-col>
+  	</ion-row>
+  	<ion-row text-right>
+  		<ion-col>
+				<a (click)="login()">Forgot your Password?</a>
+  		</ion-col>
+  	</ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button full color="lightText" (click)="login()">Log in</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <h6>or</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button full color="success" (click)="login()">Sign in with Facebook</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button full color="success" (click)="login()">Sign in With Twitter</button>
+      </ion-col>
+    </ion-row>    
+    <ion-row>
+      <ion-col center text-center>
+        <h6>New here? <a (click)="signup()">Sign Up</a></h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+</ion-content>

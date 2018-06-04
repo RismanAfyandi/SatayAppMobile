@@ -29,17 +29,31 @@ export class FoodServiceProvider {
   			return Observable.throw(err);
   		});
   }
-  getFoods(search: string):Observable<Foods[]>
+
+  getFoods():Observable<Foods[]>
   {
-  	return this.http
-  		.get<Foods[]>(this.baseUrl +'/getFoods/  '+search)
-  		.map(foods=>{
-  			return foods.map((food)=> new Foods(food));
-  		})
-  		.catch((err)=>{
-  			console.log(err);
-  			return Observable.throw(err);
-  		});
+    return this.http
+      .get<Foods[]>(this.baseUrl +'/getLatestFoods',
+      {headers: new HttpHeaders().set('token', '1231321')})
+      .map(foods=>{
+        return foods.map((food)=> new Foods(food));
+      })
+      .catch((err)=>{
+        console.log(err);
+        return Observable.throw(err);
+      });
+  }
+
+  getFood(id: string):Observable<FoodDetail>
+  {
+    return this.http
+      .get<FoodDetail>(this.baseUrl +'/getFood/'+id,
+      {headers: new HttpHeaders().set('token', '1231321')})
+      .map(food => new FoodDetail(food))
+      .catch((err)=>{
+        console.log(err);
+        return Observable.throw(err);
+      });
   }
 
 }
@@ -52,4 +66,17 @@ export class FoodServiceProvider {
    constructor(values: Object = {}) {
         Object.assign(this, values);
    	}
+ }
+
+   export class FoodDetail {
+   id: number;
+   name: string;
+   price: number;
+   image: string;
+   option: string;
+   extras: string;
+   size: string;
+   constructor(values: Object = {}) {
+        Object.assign(this, values);
+    }
  }

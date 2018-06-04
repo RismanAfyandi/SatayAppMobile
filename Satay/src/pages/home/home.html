@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="card-background-page">
-  <ion-card *ngFor="let food of foods" (click)="test(food.id)">
+  <ion-card *ngFor="let food of foods" (click)="OrderFood(food.id)">
     <img src="{{food.image}}"/>
     <div class="card-title">{{food.name}}</div>
     <div class="card-subtitle">{{food.price}}</div>

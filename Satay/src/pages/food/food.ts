@@ -10,7 +10,7 @@ export class FoodPage {
   private foods : Foods[] = [];
 
   constructor(public navCtrl: NavController, public foodService : FoodServiceProvider) {
-  	this.foodService.getFoods("1").subscribe((foods : Foods[])=>{
+  	this.foodService.getFoods().subscribe((foods : Foods[])=>{
   		this.foods = foods;
   		console.log(foods);
   	});

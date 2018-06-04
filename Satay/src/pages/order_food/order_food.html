@@ -3,7 +3,20 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Order Food</ion-title>
+    <ion-title>
+      <div *ngIf="fooddetail; else noName">
+        {{fooddetail.name}}
+        <div float-right>
+          $10
+        </div>
+      </div>
+      <ng-template #noName>
+        -
+        <div float-right>
+          $0
+        </div>
+      </ng-template>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,14 +25,19 @@
     <ion-row class="main-image">
       <ion-col>
         <ion-item>
-        <img src="assets/imgs/logo.png" class="logo" />
+          <div *ngIf="fooddetail; else noImage">
+            <img src="{{fooddetail.image}}" class="logo" />        
+          </div>
+          <ng-template #noImage>
+            <img src="assets/imgs/logo.png" class="logo" />
+          </ng-template>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-        <p>Options</p>
+          <p>Options</p>
         </ion-item>
       </ion-col>
     </ion-row>
@@ -38,28 +56,28 @@
     <ion-row>
       <ion-col>
         <ion-item>
-        <p>Extras</p>
+          <p>Extras</p>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-        <p>Cheese</p>
+          <p>Cheese</p>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-        <p>Size</p>
+          <p>Size</p>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <ion-item>
-        <p>Large</p>
+          <p>Large</p>
         </ion-item>
       </ion-col>
     </ion-row>
